@@ -52,7 +52,7 @@ function App() {
       if (selectedShow) {
         let episodesList = []
         let episodeResponse = await fetch(
-          `http://api.tvmaze.com/singlesearch/shows?q=${selectedShow}&embed[]=episodes&embed[]=cast&embed[]=crew`
+          `https://api.tvmaze.com/singlesearch/shows?q=${selectedShow}&embed[]=episodes&embed[]=cast&embed[]=crew`
         );
         let episodesJson = await episodeResponse.json();
         episodesList.push(episodesJson);
