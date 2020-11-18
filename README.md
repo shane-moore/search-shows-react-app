@@ -1,5 +1,9 @@
 # Getting Started with Create React App
 
+This app allows users to search for a tv show and be returned a list of shows matching that description via a RESTful API call to http://www.tvmaze.com/api.  The user can then select a tv show from the list and be routed to an episodes page that shows the name and air date for a show's season.  The user can also change the show's season via a dynamic multi-select.
+
+The live site is https encrypted and is hosted by Netlify at https://search-shows-react-app.netlify.app/.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -17,7 +21,7 @@ You will also see any lint errors in the console.
 ### `yarn test`
 
 Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
 
 ### `yarn build`
 
