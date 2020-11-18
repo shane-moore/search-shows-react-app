@@ -1,0 +1,118 @@
+.app-title-header{
+  position: sticky;
+  top:0px;
+  width:100vw;
+  height: 40px;
+  line-height: 40px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding-left:5vw;
+  background: var(--app-header-background);
+  color: #F0F2F5;
+}
+
+main{
+  margin: 1rem;
+   background: #FFF;
+   padding: .5rem;
+   p {
+     color: var(--description-font-color);
+   }
+
+  .search-container {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 1rem auto;
+    align-items: start;
+    justify-content: center;
+    svg {
+      position: relative;
+      left: 30px;
+      top: 7px;
+      z-index: 2;
+    }
+    input {
+        background: var(--background-color);
+        color: var(--main-font-color);
+        font-size: .7rem;
+        width: 275px;
+        height: 24px;
+        border-radius: 5px;
+        &[placeholder]{
+          position: relative;
+          padding-left:35px;
+        }
+    }
+  }
+
+  .results-container {
+    margin-top: 40px;
+    width: auto;
+
+    .results__headers {
+      display: flex;
+      width: auto;
+      justify-content: space-between;
+      font-size: 20px;
+    }
+    .results {
+      display: grid;
+      background: var(--background-color);
+      margin-left: 125px;
+      margin-bottom: 50px;
+      width: 70%;
+      border-radius:5px;
+      grid-template-columns: 150px 1fr;
+      grid-auto-rows: 150px;
+      font-size: 12px;
+        .img-container {
+        position: relative;
+        top: -14px;
+        left: 12px;
+        padding-right: 30px;
+        justify-self: end;
+        border-radius: 5px;
+        img{
+          width: 125px;
+          height: auto;
+          border-radius: 5px;
+        }
+      }
+      .show-container {
+        margin-left: 1rem;
+        padding-top: 10px;
+        header {
+          font-size:18px;
+          font-weight: 700;
+        }
+
+        p{
+          padding-right: 100px;
+          margin-top:5px;
+        }
+        .episodes-button{
+          height: 1.3rem;
+          line-height: center;
+        }
+      }
+    }
+  }
+
+
+  button {
+    background: var(--button-color);
+    color: var(--background-color);
+    border-radius: 5px;
+    height: 30px;
+    width: auto;
+    text-align: center;
+    font-size: .7rem;
+    font-weight: 600;
+  }
+
+  button:hover {
+    background: #aaa;
+    cursor: pointer;
+  }
+}
+
