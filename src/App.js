@@ -41,9 +41,13 @@ function App() {
         let showsResponse = await fetch(
           `https://api.tvmaze.com/search/shows?q=${searchedShow}`
         );
-        let showsJson = await showsResponse.json();
-        showsList.push(showsJson);
-        setShowsList(...showsList);
+        if (!showsResponse.ok) {
+          throw Error(showsResponse.statusText);
+        } else {
+          let showsJson = await showsResponse.json();
+          showsList.push(showsJson);
+          setShowsList(...showsList);
+        }
       }
     }
 
@@ -54,11 +58,16 @@ function App() {
         let episodeResponse = await fetch(
           `https://api.tvmaze.com/singlesearch/shows?q=${selectedShow}&embed[]=episodes&embed[]=cast&embed[]=crew`
         );
-        let episodesJson = await episodeResponse.json();
-        episodesList.push(episodesJson);
-        setEpisodesList(...episodesList);
-        let seasons = getSeasons(episodesList);
-        setSeasons(seasons);
+        if (!episodeResponse.ok) {
+          throw Error(episodeResponse.statusText);
+        } else {
+          let episodesJson = await episodeResponse.json();
+          episodesList.push(episodesJson);
+          setEpisodesList(...episodesList);
+          let seasons = getSeasons(episodesList);
+          setSeasons(seasons);
+        }
+
 
         // call getSeasonDetails to update the Seasons variable
         //getSeasonDetails();
@@ -113,7 +122,7 @@ function App() {
 
         {episodesDetails.map(episodeDetail => {
           return (
-            <div className="episode">
+            <div className="episode" id={episodeDetail.id}>
               <div className="episode-container__left-block">{episodeDetail.episodeNumber}</div>
               <div className="episode-container__right-block">
                 <div className="episode-title">{episodeDetail.episodeTitle}</div>
@@ -154,7 +163,7 @@ function App() {
   function resultsMap(show) {
     return (
       <article className="results" key="repo.id">
-        <div class="img-container"><img src={show.show.image ? `${show.show.image.medium}` : null} alt=""></img>
+        <div className="img-container"><img src={show.show.image ? `${show.show.image.medium}` : null} alt=""></img>
         </div>
         <div className="show-container">
           <header>{show.show.name}</header>
@@ -176,7 +185,6 @@ function App() {
       <React.Fragment>
         <select onChange={() => setSelectedSeason(document.querySelector('select').value)}>
           {seasons.map(seasonNumber => {
-            console.log(seasonNumber);
             return (<React.Fragment>
               <option value={seasonNumber}>{seasonNumber}</option>
             </React.Fragment>)
@@ -194,7 +202,8 @@ function App() {
       <main>
         <div className="search-container">
           <FontAwesomeIcon icon="search" />
-          <input type="text" placeholder="The Office" />
+          <label htmlFor="test"></label>
+          <input type="text" placeholder="Office" id="test" />
           <button onClick={() => {
             setSearchedShow(document.querySelector("input").value);
             setSearchPageFlag(true);

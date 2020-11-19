@@ -1549,7 +1549,7 @@
     "@babel/runtime" "^7.12.1"
     "@testing-library/dom" "^7.26.6"
 
-"@testing-library/user-event@^12.1.10":
+"@testing-library/user-event@^12.2.2":
   "integrity" "sha512-mTYL9LrwiSeyorStUOMuRGQDn1ca40tIhuv//o/K3lY8wBEp+9Im90MFVx5i3u7zCPmavn3uWZs/10chsbI8Tg=="
   "resolved" "https://registry.yarnpkg.com/@testing-library/user-event/-/user-event-12.2.2.tgz"
   "version" "12.2.2"
