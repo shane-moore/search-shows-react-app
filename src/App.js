@@ -183,7 +183,7 @@ function App() {
   function Episodes() {
     return (
       <React.Fragment>
-        <select onChange={() => setSelectedSeason(document.querySelector('select').value)}>
+        <select value={selectedSeason} onChange={() => setSelectedSeason(document.querySelector('select').value)}>
           {seasons.map(seasonNumber => {
             return (<React.Fragment>
               <option value={seasonNumber}>{seasonNumber}</option>

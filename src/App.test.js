@@ -15,7 +15,7 @@ test('renders the search button and therefore the App component renders', () => 
 });
 
 
-test('loads and displays search result', () => {
+test('loads and displays search result', async () => {
 
   render(<App />);
 
@@ -32,7 +32,7 @@ test('loads and displays search result', () => {
   fireEvent.click(screen.getByText('Search'))
 
   // await response and validate that some expected text is returned and is found on the DOM
-  waitFor(async () => {
+  await waitFor(async () => {
     await expect(screen.getByText(/The Naked Office attempts/)).toBeInTheDocument()
   })
 });
